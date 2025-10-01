@@ -1,0 +1,3 @@
+# Car Dashboard
+
+We will go hands on with Bevy, starting from the basics and using its built-in features to build a car dashboard, showing information like current speed, tire pressure, music being played, ...

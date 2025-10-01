@@ -1,0 +1,10 @@
+[package]
+name = "car-vision"
+version = "0.1.0"
+edition = "2024"
+default-run = "car-vision"
+
+[dependencies]
+bevy = {version = "0.17", features = ["jpeg"]}
+bevy_egui = "0.37.0"
+bevy_pointcloud = {git = "https://github.com/mockersf/bevy_pointcloud", branch = "update-bevy-0.17"}

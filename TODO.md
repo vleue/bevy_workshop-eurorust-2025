@@ -1,0 +1,10 @@
+- 0-intro
+  - take over most intro of last workshop up to menu
+- book
+  - start the book
+  - reuse all the start from last workshop
+  - link to demo videos on youtube
+- transform to exercises
+  - comment out part of the code
+  - add more comment in the code
+- timing estimation and test

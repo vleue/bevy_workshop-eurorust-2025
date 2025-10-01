@@ -1,0 +1,13 @@
+[workspace]
+resolver = "3"
+members = ["0-intro", "1-dashboard", "2-home-automation", "3-car-vision"]
+
+# Enable a small amount of optimization in the dev profile.
+[profile.dev]
+opt-level = 1
+strip = "debuginfo"
+
+# Enable a large amount of optimization in the dev profile for dependencies.
+[profile.dev.package."*"]
+opt-level = 3
+debug-assertions = false

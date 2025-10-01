@@ -1,0 +1,9 @@
+[package]
+name = "home-automation"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = {version = "0.17", features = ["jpeg", "experimental_bevy_feathers"]}
+chrono = "0.4"
+crossbeam = "0.8"
