@@ -1,0 +1,15 @@
+[package]
+name = "home-automation"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+current_state = []
+light_panel = []
+light_history = ["light_panel"]
+
+[dependencies]
+bevy = { workspace = true }
+crossbeam = { workspace = true }
+bevy_egui = { workspace = true }
+bevy_pointcloud = { workspace = true }

@@ -1,0 +1,17 @@
+[package]
+name = "dashboard"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+speedometer = []
+odometer = ["speedometer"]
+battery = ["speedometer"]
+radio = []
+default = ["odometer"]
+
+[dependencies]
+bevy = { workspace = true }
+crossbeam = { workspace = true }
+bevy_egui = { workspace = true }
+bevy_pointcloud = { workspace = true }

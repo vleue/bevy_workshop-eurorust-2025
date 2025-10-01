@@ -1,0 +1,27 @@
+[package]
+name = "intro"
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+
+[dependencies]
+bevy = { version = "0.17", default-features = false, features = [
+  "std",
+  "bevy_color",
+  "bevy_core_pipeline",
+  "bevy_log",
+  "bevy_render",
+  "bevy_camera",
+  "bevy_state",
+  "bevy_text",
+  "bevy_ui",
+  "bevy_ui_render",
+  "bevy_window",
+  "bevy_winit",
+  "default_font",
+  "sysinfo_plugin",
+  "x11",
+  "wayland",
+  "debug",
+] }
