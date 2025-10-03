@@ -26,11 +26,16 @@ A Resource is a globally accessible data structure that is not tied to any speci
 
 ## Event
 
-An Event is a message that can be sent and received by systems. Events are used to communicate between systems and decouple their logic.
+TODO
+
+## Message
+
+TODO
 
 ## Observer
 
 An Observer is a system that reacts to changes in the World, such as component modifications or entity creation. It is used to implement reactive behavior.
+TODO
 
 ## Relations
 
