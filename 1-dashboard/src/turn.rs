@@ -88,14 +88,14 @@ struct Blink {
 }
 
 fn blink(mut to_blink: Query<&mut Blink>, mut sprites: Query<&mut Sprite>, time: Res<Time>) {
-    if let Ok(mut blink) = to_blink.single_mut() {
-        if blink.timer.tick(time.delta()).just_finished() {
-            let mut sprite = sprites.get_mut(blink.target).unwrap();
-            sprite.color = if sprite.color == Color::WHITE {
-                palettes::tailwind::GRAY_800.into()
-            } else {
-                Color::WHITE
-            };
-        }
+    if let Ok(mut blink) = to_blink.single_mut()
+        && blink.timer.tick(time.delta()).just_finished()
+    {
+        let mut sprite = sprites.get_mut(blink.target).unwrap();
+        sprite.color = if sprite.color == Color::WHITE {
+            palettes::tailwind::GRAY_800.into()
+        } else {
+            Color::WHITE
+        };
     }
 }

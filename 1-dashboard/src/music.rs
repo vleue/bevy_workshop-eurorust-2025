@@ -24,11 +24,11 @@ impl Song {
         artwork: &'static str,
     ) -> Self {
         Song {
-            title: title,
-            artist: artist,
+            title,
+            artist,
             duration,
-            album: album,
-            artwork: artwork,
+            album,
+            artwork,
         }
     }
 }
@@ -146,7 +146,7 @@ fn setup(
         children![
             (
                 Sprite::from_image(
-                    asset_server.load(format!("radio/sgt-peppers-lonely-hearts-club-band.png",))
+                    asset_server.load("radio/sgt-peppers-lonely-hearts-club-band.png")
                 ),
                 Transform::from_xyz(0.0, 100.0, 0.0).with_scale(Vec3::splat(0.5)),
                 Artwork
@@ -196,6 +196,7 @@ fn update(mut current: ResMut<MusicState>, time: Res<Time>) {
     }
 }
 
+#[allow(clippy::too_many_arguments)]
 fn display(
     current: Res<MusicState>,
     material: Single<&MeshMaterial2d<ProgressMaterial>, With<ProgressIndicator>>,
