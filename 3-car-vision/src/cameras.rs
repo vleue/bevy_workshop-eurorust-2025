@@ -41,7 +41,7 @@ fn ui_example_system(
             ui.add(
                 egui::Slider::new(
                     &mut play.current_frame,
-                    0..=(dataset.point_clouds.len() - 1),
+                    0..=(dataset.point_clouds.len().max(1) - 1),
                 )
                 .text("Frame"),
             );
@@ -96,7 +96,7 @@ fn setup(mut commands: Commands, mut egui_global_settings: ResMut<EguiGlobalSett
     for (index, (layer, camera_pos, size)) in [
         (
             RenderLayers::layer(1),
-            Vec3::new(-5.0, 1.0, 0.0),
+            Vec3::new(-1.0, 0.25, 0.0),
             UVec2::new(2, 2),
         ), // First Person View
         (
