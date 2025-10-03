@@ -17,8 +17,8 @@ We can add Bevy 0.17 with the default features enabled:
 cargo add bevy@0.17
 
 Updating crates.io index
-  Adding bevy v0.16 to dependencies
-         Features as of v0.16.0:
+  Adding bevy v0.17 to dependencies
+         Features as of v0.17.1:
          41 activated features
          68 deactivated features
 Updating crates.io index
@@ -29,19 +29,11 @@ Bevy exposes a lot of features, 133 for the 0.17! [The full list of features is 
 
 For this workshop, we'll use the following features:
 
-```sh
-cargo add bevy@0.16 --no-default-features --features "bevy_asset,bevy_audio,bevy_core_pipeline,bevy_render,bevy_sprite,bevy_state,bevy_text,bevy_ui,bevy_winit,default_font,multi_threaded,bevy_gizmos,wav,png,x11,wayland,webgl2"
-```
-
-<div class="warning">
-
-You can add all the dependencies used in this workshop now to avoid recompilations later:
+TODO: list needed features
 
 ```sh
 cargo add bevy@0.17 --no-default-features --features "bevy_asset,bevy_audio,bevy_core_pipeline,bevy_render,bevy_sprite,bevy_state,bevy_text,bevy_ui,bevy_winit,default_font,multi_threaded,bevy_gizmos,wav,png,x11,wayland,webgl2"
 ```
-
-</div>
 
 This is the most basic Bevy application. It will exit immediately upon running and perform no actions.
 

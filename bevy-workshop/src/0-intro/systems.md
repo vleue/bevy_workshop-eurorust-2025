@@ -64,7 +64,7 @@ Systems in the `Update` schedule execute every frame. With vsync enabled, this i
 
 ## Systems
 
-Systems are functions whose parameters must implement the [`SystemParam`](https://docs.rs/bevy/0.16.0/bevy/ecs/system/trait.SystemParam.html) trait. These parameters are provided through dependency injection based on their type.
+Systems are functions whose parameters must implement the [`SystemParam`](https://docs.rs/bevy/0.17.1/bevy/ecs/system/trait.SystemParam.html) trait. These parameters are provided through dependency injection based on their type.
 
 If you want more details on how this works, you can find them here: [Dependency Injection like Bevy Engine from Scratch](https://promethia-27.github.io/dependency_injection_like_bevy_from_scratch/introductions.html)
 

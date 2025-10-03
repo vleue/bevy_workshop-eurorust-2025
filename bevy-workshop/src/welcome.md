@@ -1,6 +1,6 @@
 # Welcome
 
-Welcome to the introductory workshop for the [Bevy Engine](https://bevyengine.org).
+Welcome to the non-game workshop for the [Bevy Game Engine](https://bevy.org).
 
 You can access it at <https://vleue.github.io/bevy_workshop-eurorust-2025/>.
 

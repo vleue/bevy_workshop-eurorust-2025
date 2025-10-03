@@ -15,14 +15,13 @@ fn main() {
             }),
             ..default()
         }))
-        .init_state::<GameState>()
-        .enable_state_scoped_entities::<GameState>()
+        .init_state::<ApplicationState>()
         .add_plugins(splash::SplashPlugin)           // adding our new plugin
         .run();
 }
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, States, Default)]
-enum GameState {
+enum ApplicationState {
     #[default]
     Splash,
     StartMenu,
@@ -31,14 +30,14 @@ enum GameState {
 mod splash {
     use bevy::prelude::*;
 
-    use crate::GameState;
+    use crate::ApplicationState;
 
     pub struct SplashPlugin;
 
     impl Plugin for SplashPlugin {
         fn build(&self, app: &mut App) {
-            app.add_systems(OnEnter(GameState::Splash), display_title)
-                .add_systems(Update, switch_to_menu.run_if(in_state(GameState::Splash)));
+            app.add_systems(OnEnter(ApplicationState::Splash), display_title)
+                .add_systems(Update, switch_to_menu.run_if(in_state(ApplicationState::Splash)));
         }
     }
 
@@ -70,7 +69,7 @@ mod splash {
                     },
                 )
             ],
-            StateScoped(GameState::Splash),
+            DespawnOnExit(ApplicationState::Splash),
         ));
 
         commands.insert_resource(SplashScreenTimer(Timer::from_seconds(2.0, TimerMode::Once)));
@@ -80,12 +79,12 @@ mod splash {
     struct SplashScreenTimer(Timer);
 
     fn switch_to_menu(
-        mut next: ResMut<NextState<GameState>>,
+        mut next: ResMut<NextState<ApplicationState>>,
         mut timer: ResMut<SplashScreenTimer>,
         time: Res<Time>,
     ) {
         if timer.0.tick(time.delta()).just_finished() {
-            next.set(GameState::StartMenu);
+            next.set(ApplicationState::StartMenu);
         }
     }
 }
@@ -97,7 +96,7 @@ For most cases, a plugin can be a free function:
 # extern crate bevy;
 # use bevy::prelude::*;
 # #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, States, Default)]
-# enum GameState {
+# enum ApplicationState {
 #     #[default]
 #     Splash,
 # }
@@ -110,13 +109,13 @@ fn main() {
 
 mod splash {
     # use bevy::prelude::*;
-    # use crate::GameState;
+    # use crate::ApplicationState;
     # fn display_title() {}
     # fn load_assets() {}
     # fn switch_to_menu() {}
     pub fn splash_plugin(app: &mut App) {
-        app.add_systems(OnEnter(GameState::Splash), display_title)
-            .add_systems(Update, switch_to_menu.run_if(in_state(GameState::Splash)));
+        app.add_systems(OnEnter(ApplicationState::Splash), display_title)
+            .add_systems(Update, switch_to_menu.run_if(in_state(ApplicationState::Splash)));
     }
 }
 ```

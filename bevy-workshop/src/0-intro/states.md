@@ -15,16 +15,15 @@ fn main() {
             }),
             ..default()
         }))
-        .init_state::<GameState>()
-        .enable_state_scoped_entities::<GameState>()
-        .add_systems(OnEnter(GameState::Splash), display_title)
-        .add_systems(Update, switch_to_menu.run_if(in_state(GameState::Splash)))
+        .init_state::<ApplicationState>()
+        .add_systems(OnEnter(ApplicationState::Splash), display_title)
+        .add_systems(Update, switch_to_menu.run_if(in_state(ApplicationState::Splash)))
         .run();
 }
 
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, States, Default)]
-enum GameState {
+enum ApplicationState {
     #[default]
     Splash,
     StartMenu,
@@ -61,19 +60,19 @@ fn display_title(mut commands: Commands) {
                 },
             )
         ],
-        StateScoped(GameState::Splash),
+        DespawnOnExit(ApplicationState::Splash),
     ));
 
     commands.insert_resource(SplashScreenTimer(Timer::from_seconds(2.0, TimerMode::Once)));
 }
 
 fn switch_to_menu(
-    mut next: ResMut<NextState<GameState>>,
+    mut next: ResMut<NextState<ApplicationState>>,
     mut timer: ResMut<SplashScreenTimer>,
     time: Res<Time>,
 ) {
     if timer.0.tick(time.delta()).just_finished() {
-        next.set(GameState::StartMenu);
+        next.set(ApplicationState::StartMenu);
     }
 }
 ```
@@ -88,4 +87,4 @@ States can be changed using the `NextState` resource.
 
 ## State-Scoped Entities
 
-By adding the `StateScoped` component, all entities and their hierarchy marked with this component will be despawned when exiting the state.
+By adding the `DespawnOnExit` component, all entities and their hierarchy marked with this component will be despawned when exiting the state.
