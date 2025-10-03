@@ -25,7 +25,7 @@ Updating crates.io index
  Locking 468 packages to latest Rust 1.86.0 compatible versions
 ```
 
-Bevy exposes a lot of features, 133 for the 0.17! [The full list of features is available in the documentation](https://docs.rs/bevy/0.17.2/bevy/#cargo-features). It is important to disable default features and only enable the ones you need. This will improve performance, compilation time and reduce binary size.
+Bevy exposes a lot of features, 133 for the 0.17! [The full list of features is available in the documentation](https://docs.rs/bevy/0.17.1/bevy/#cargo-features). It is important to disable default features and only enable the ones you need. This will improve performance, compilation time and reduce binary size.
 
 For this workshop, we'll use the following features:
 
