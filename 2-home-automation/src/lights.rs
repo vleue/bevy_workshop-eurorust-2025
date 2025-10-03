@@ -205,7 +205,7 @@ fn toggle_light_panel(
 
     let (light, pointlight) = light.get(event.entity).unwrap();
 
-    let target_light = light.name.clone();
+    let target_light = light.name;
     commands.spawn((
         LightPanel(target_light),
         Node {
@@ -289,15 +289,15 @@ fn on_light_state_changed(
             }
         }
     }
-    if let Ok(panel) = panel_open.single() {
-        if panel.0 == message.light {
-            if message.on {
-                commands.entity(toggle.single().unwrap()).insert(Checked);
-            } else {
-                commands
-                    .entity(toggle.single().unwrap())
-                    .remove::<Checked>();
-            }
+    if let Ok(panel) = panel_open.single()
+        && panel.0 == message.light
+    {
+        if message.on {
+            commands.entity(toggle.single().unwrap()).insert(Checked);
+        } else {
+            commands
+                .entity(toggle.single().unwrap())
+                .remove::<Checked>();
         }
     }
 }
@@ -307,12 +307,12 @@ fn on_light_history(
     panel_open: Query<(Entity, &LightPanel)>,
     mut commands: Commands,
 ) {
-    if let Ok((entity, panel)) = panel_open.single() {
-        if panel.0 == message.light {
-            commands
-                .entity(entity)
-                .insert(History(message.history.clone()));
-        }
+    if let Ok((entity, panel)) = panel_open.single()
+        && panel.0 == message.light
+    {
+        commands
+            .entity(entity)
+            .insert(History(message.history.clone()));
     }
 }
 
