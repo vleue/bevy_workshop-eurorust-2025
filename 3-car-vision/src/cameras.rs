@@ -36,7 +36,7 @@ fn ui_example_system(
 
     let original_point_size_fpv = point_size_fpv;
     let original_point_size_tp = point_size_tp;
-    egui::TopBottomPanel::bottom("Controls").show(contexts.ctx_mut()?, |ui| {
+    egui::TopBottomPanel::top("Controls").show(contexts.ctx_mut()?, |ui| {
         ui.horizontal(|ui| {
             ui.add(
                 egui::Slider::new(
@@ -71,7 +71,6 @@ fn ui_example_system(
 }
 
 fn setup(mut commands: Commands, mut egui_global_settings: ResMut<EguiGlobalSettings>) {
-    // Disable the automatic creation of a primary context to set it up manually for every camera.
     egui_global_settings.auto_create_primary_context = false;
     commands.spawn((
         PrimaryEguiContext,
