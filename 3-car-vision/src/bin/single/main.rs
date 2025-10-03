@@ -45,10 +45,7 @@ fn load_pointcloud(
 ) {
     commands.spawn((
         PointCloud3d(asset_server.load("Untitled_Scan_20_56_03.las")),
-        PointCloudMaterial3d(point_cloud_materials.add(PointCloudMaterial {
-            point_size: 50.0,
-            ..default()
-        })),
+        PointCloudMaterial3d(point_cloud_materials.add(PointCloudMaterial { point_size: 50.0 })),
         Transform::from_rotation(Quat::from_rotation_x(FRAC_PI_2)),
     ));
 }

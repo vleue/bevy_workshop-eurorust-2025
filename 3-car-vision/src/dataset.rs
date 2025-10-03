@@ -36,14 +36,8 @@ fn load_meshes(
     asset_server: Res<AssetServer>,
 ) {
     commands.insert_resource(PointCloudDataset {
-        material_fpv: point_cloud_materials.add(PointCloudMaterial {
-            point_size: 50.0,
-            ..default()
-        }),
-        material_tp: point_cloud_materials.add(PointCloudMaterial {
-            point_size: 200.0,
-            ..default()
-        }),
+        material_fpv: point_cloud_materials.add(PointCloudMaterial { point_size: 50.0 }),
+        material_tp: point_cloud_materials.add(PointCloudMaterial { point_size: 200.0 }),
         point_clouds: vec![],
         loaded: false,
     });
@@ -65,6 +59,7 @@ fn load_meshes(
     commands.spawn((PointLight::default(), RenderLayers::layer(2)));
 }
 
+#[allow(clippy::too_many_arguments)]
 fn load_pointcloud(
     mut commands: Commands,
     existing: Query<Entity, With<PointCloud3d>>,
@@ -128,7 +123,7 @@ fn load_pointcloud(
         if dataset.loaded {
             play.current_frame = (play.current_frame + 1) % dataset.point_clouds.len();
         } else {
-            play.current_frame = play.current_frame + 1;
+            play.current_frame += 1;
             dataset.point_clouds.push(asset_server.load(format!(
                 "{}/velodyne/{:0>10}.laz",
                 DATASET, play.current_frame

@@ -75,7 +75,7 @@ fn setup(mut commands: Commands, mut egui_global_settings: ResMut<EguiGlobalSett
     egui_global_settings.auto_create_primary_context = false;
     commands.spawn((
         PrimaryEguiContext,
-        Camera2d::default(),
+        Camera2d,
         Camera {
             order: 0,
             clear_color: ClearColorConfig::None,
