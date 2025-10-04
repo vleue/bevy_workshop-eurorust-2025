@@ -19,9 +19,13 @@ jobs:
           mkdir bin
           curl -sSL $url | tar -xz --directory=bin
           echo "$(pwd)/bin" >> $GITHUB_PATH
-      - name: Install Dependencies
+      - name: Install Linux Dependencies
         run: sudo apt-get update; sudo apt-get install pkg-config libx11-dev libasound2-dev libudev-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libwayland-dev libxkbcommon-dev
-      - name: Build Dependencies
+      - name: Add Derive Direct Crate Dependencies
+        run: |
+          cargo add bevy_ecs@0.17
+          cargo add bevy_state@0.17
+      - name: Build Rust Dependencies
         run: cargo build
       - name: Test Book
         run: CARGO_MANIFEST_DIR=`pwd` mdbook test bevy-workshop -L target/debug/deps
