@@ -6,22 +6,32 @@ members = ["0-intro", "1-dashboard", "2-home-automation", "3-car-vision"]
 [profile.dev]
 opt-level = 1
 strip = "debuginfo"
+debug-assertions = false
+debug = false
 
 # # Enable a large amount of optimization in the dev profile for dependencies.
 # [profile.dev.package."*"]
 # opt-level = 3
+# strip = "debuginfo"
 # debug-assertions = false
+# debug = false
 
 # Enable optimizations in the dev profile for specific dependencies.
 [profile.dev.package.las]
 opt-level = 3
+strip = "debuginfo"
 debug-assertions = false
+debug = false
 [profile.dev.package.laz]
 opt-level = 3
+strip = "debuginfo"
 debug-assertions = false
+debug = false
 [profile.dev.package.bevy_pointcloud]
 opt-level = 3
+strip = "debuginfo"
 debug-assertions = false
+debug = false
 
 [workspace.dependencies]
 bevy = { version = "0.17", default-features = false, features = [
