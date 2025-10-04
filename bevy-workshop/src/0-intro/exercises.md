@@ -1,13 +1,5 @@
 # Exercises
 
-Don't forget to checkout the branch:
-
-```sh
-git checkout 05-intro-to-bevy
-```
-
-Let's review what was changed: <https://github.com/vleue/bevy_workshop-rustweek-2025/compare/0-zero..05-intro-to-bevy>
-
 ## Adding a Start Menu
 
 We'll add a new plugin to handle the start menu. It will be very similar to the splash screen plugin, with different text and with a different condition to change state.
