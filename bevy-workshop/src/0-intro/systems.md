@@ -41,7 +41,7 @@ fn display_title(mut commands: Commands) {
                 },
             ),
             (
-                Text::new("Rust Week 2025"),
+                Text::new("EuroRust 2025"),
                 TextFont {
                     font_size: 100.0,
                     ..default()

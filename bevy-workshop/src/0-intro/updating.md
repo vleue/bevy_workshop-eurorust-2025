@@ -4,6 +4,7 @@ A key characteristic of a splash screen is that it doesn't stay forever. Let's r
 
 ```rust,no_run
 # extern crate bevy;
+# extern crate bevy_ecs;
 use bevy::prelude::*;
 
 fn main() {
@@ -41,7 +42,7 @@ fn display_title(mut commands: Commands) {
                 },
             ),
             (
-                Text::new("Rust Week 2025"),
+                Text::new("EuroRust 2025"),
                 TextFont {
                     font_size: 100.0,
                     ..default()

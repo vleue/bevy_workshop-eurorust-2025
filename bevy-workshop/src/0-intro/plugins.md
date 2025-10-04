@@ -4,6 +4,8 @@ Plugins are used for code organization, often in their own files.
 
 ```rust,no_run
 # extern crate bevy;
+# extern crate bevy_ecs;
+# extern crate bevy_state;
 use bevy::prelude::*;
 
 fn main() {
@@ -62,7 +64,7 @@ mod splash {
                     },
                 ),
                 (
-                    Text::new("Rust Week 2025"),
+                    Text::new("EuroRust 2025"),
                     TextFont {
                         font_size: 100.0,
                         ..default()
@@ -94,6 +96,7 @@ For most cases, a plugin can be a free function:
 
 ```rust,no_run
 # extern crate bevy;
+# extern crate bevy_state;
 # use bevy::prelude::*;
 # #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, States, Default)]
 # enum ApplicationState {

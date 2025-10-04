@@ -4,6 +4,8 @@ Bevy provides an abstraction and helpers to control systems that execute based o
 
 ```rust,no_run
 # extern crate bevy;
+# extern crate bevy_ecs;
+# extern crate bevy_state;
 use bevy::prelude::*;
 
 fn main() {
@@ -53,7 +55,7 @@ fn display_title(mut commands: Commands) {
                 },
             ),
             (
-                Text::new("Rust Week 2025"),
+                Text::new("EuroRust 2025"),
                 TextFont {
                     font_size: 100.0,
                     ..default()
