@@ -88,7 +88,7 @@ fn load_pointcloud(
     };
     if !point_clouds.contains(point_cloud) {
         *waiting += 1;
-        if *waiting > 5 {
+        if *waiting > 100 {
             play.current_frame = 0;
             dataset.point_clouds.pop();
             dataset.loaded = true;

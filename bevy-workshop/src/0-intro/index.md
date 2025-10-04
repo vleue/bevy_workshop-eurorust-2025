@@ -7,3 +7,5 @@ Embark on your development journey by creating a captivating splash screen. In t
 - Develop a system to spawn entities with components
 - Use states to minimize boilerplate code
 - Refactor your codebase with plugins for better organization
+
+TODO: add hot patching
