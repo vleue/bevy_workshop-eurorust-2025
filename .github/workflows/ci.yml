@@ -23,8 +23,8 @@ jobs:
         run: sudo apt-get update; sudo apt-get install pkg-config libx11-dev libasound2-dev libudev-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev libwayland-dev libxkbcommon-dev
       - name: Add Derive Direct Crate Dependencies
         run: |
-          cargo add bevy_ecs@0.17
-          cargo add bevy_state@0.17
+          cargo add bevy_ecs@0.17 --package intro
+          cargo add bevy_state@0.17 --package intro
       - name: Build Rust Dependencies
         run: cargo build
       - name: Test Book
