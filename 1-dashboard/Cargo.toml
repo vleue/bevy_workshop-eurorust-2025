@@ -8,7 +8,6 @@ speedometer = []
 odometer = ["speedometer"]
 battery = ["speedometer"]
 radio = []
-default = ["odometer"]
 
 [dependencies]
 bevy = { workspace = true }

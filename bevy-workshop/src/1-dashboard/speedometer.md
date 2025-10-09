@@ -5,6 +5,7 @@ Solutions for those exercises are behind the `speedometer` feature.
 ## Displaying the Speedometer
 
 Display the speedometer images, with the images available in the `assets/speedometer` folder.
+
 Tips:
 
 - The hand will need a position relative to the dial
